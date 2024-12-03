@@ -13,6 +13,36 @@ window.addEventListener("load", () => {
     ];
 
     function checkWin() {
+        let index = 0;
+        while (index < victories.length) {
+            const currentSolution = victories[index];
+
+
+            const td1 = tdList[currentSolution[0]];
+            const td2 = tdList[currentSolution[1]];
+            const td3 = tdList[currentSolution[2]];
+
+
+            if (td1.innerText !== ''
+             && td1.innerText === td2.innerText
+             && td1.innerText === td3.innerText) {
+                Swal.fire({
+                    'icon': 'success',
+                    'text': `${players[round % players.length]} a gagné !!!`
+                })
+                return true;
+            }
+            index++;
+        }
+
+        if (round === 8) {
+            Swal.fire({
+                'icon': 'error',
+                'text': `Vous avez fait un Match nul tout comme vous!!!`
+            });
+        }
+
+        return false;
     }
 
     function updateCurrentPlayerScreen() {
