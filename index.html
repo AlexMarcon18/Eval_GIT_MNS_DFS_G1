@@ -1,0 +1,52 @@
+git<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Morpion</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto mt-10">
+      <div class="text-center">
+        <p class="text-2xl font-bold">
+          C'est au tour de
+          <span
+            id="currentPlayerScreen"
+            class="py-1 px-2 bg-blue-500 text-white rounded"
+            >_</span
+          >
+          de jouer !
+        </p>
+      </div>
+      <div class="mt-5">
+        <table class="mx-auto border-collapse">
+          <tbody>
+            <tr>
+              <td class="pointer border p-16 cursor-pointer"></td>
+              <td class="pointer border p-16 cursor-pointer"></td>
+              <td class="pointer border p-16 cursor-pointer"></td>
+            </tr>
+            <tr>
+              <td class="pointer border p-16 cursor-pointer"></td>
+              <td class="pointer border p-16 cursor-pointer"></td>
+              <td class="pointer border p-16 cursor-pointer"></td>
+            </tr>
+            <tr>
+              <td class="pointer border p-16 cursor-pointer"></td>
+              <td class="pointer border p-16 cursor-pointer"></td>
+              <td class="pointer border p-16 cursor-pointer"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
