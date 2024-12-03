@@ -68,3 +68,11 @@ window.addEventListener("load", () => {
         i++;
     }
 });
+
+
+// ajouter un bouton reset
+const resetButton = document.getElementById('resetButton');
+
+resetButton.addEventListener("click", () => {
+  window.location.reload();
+});
