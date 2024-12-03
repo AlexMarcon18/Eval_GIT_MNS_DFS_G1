@@ -1,5 +1,21 @@
+/* Reset CSS au début du fichier */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  
+}
+
 :root {
-  --neon-pink: #ff2b9d;s
+  --neon-pink: #ff2b9d;
   --neon-blue: #00f3ff;
   --neon-purple: #b537f2;
   --dark-bg: #1a1a1a;
@@ -7,46 +23,65 @@
 
 body {
   background: #000000;
-  background-image: 
-    radial-gradient(circle at 50% 50%, rgba(255, 43, 157, 0.05), transparent 70%),
-    linear-gradient(0deg, transparent 24%, 
-      rgba(181, 55, 242, 0.03) 25%,
-      rgba(181, 55, 242, 0.03) 26%, transparent 27%, transparent 74%,
-      rgba(181, 55, 242, 0.03) 75%, rgba(181, 55, 242, 0.03) 76%, transparent 77%),
-    linear-gradient(90deg, transparent 24%, 
-      rgba(181, 55, 242, 0.03) 25%, rgba(181, 55, 242, 0.03) 26%,
-      transparent 27%, transparent 74%, rgba(181, 55, 242, 0.03) 75%,
-      rgba(181, 55, 242, 0.03) 76%, transparent 77%);
-  background-size: 100% 100%, 50px 50px, 50px 50px;
   min-height: 100vh;
   position: relative;
-  overflow-x: hidden;
+  perspective: 1000px;
+  overflow: hidden;
 }
 
+/* Grille principale */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(to bottom,
+      #000000 0%,
+      #1b0036 40%,
+      #b537f2 100%);
+  opacity: 0.8;
+  z-index: -2;
+}
+
+/* Grilles synthwave */
 body::after {
   content: '';
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -50%) rotateX(60deg);
   width: 200vw;
   height: 200vh;
-  background: repeating-linear-gradient(
-    transparent 0%,
-    rgba(255, 255, 255, 0.03) 1px,
-    transparent 3px
-  );
-  animation: grid 30s linear infinite;
-  pointer-events: none;
-  opacity: 0.1;
+  background: 
+    linear-gradient(90deg, rgba(255, 43, 157, 0.3) 1px, transparent 1px),
+    linear-gradient(rgba(255, 43, 157, 0.3) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: translate(-50%, -50%) rotateX(45deg);
+  transform-origin: center center;
+  animation: moveGrid 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes moveGrid {
+  0% {
+    transform: translate(-50%, -50%) rotateX(45deg) translateY(0%);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateX(45deg) translateY(50%);
+  }
 }
 
 .container {
   backdrop-filter: blur(5px);
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 15px;
   box-shadow: 0 0 20px var(--neon-purple);
   animation: glow 2s infinite alternate;
+  width: fit-content;
+  margin: 2rem auto;
+  background: rgba(0, 0, 0, 0.7);
 }
 
 #currentPlayerScreen {
@@ -60,6 +95,7 @@ table {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 0 30px var(--neon-blue);
+  margin: 1rem auto;
 }
 
 td {
@@ -141,4 +177,8 @@ td:has(span) {
   .container {
     margin: 1rem;
   }
+}
+
+.text-center {
+  margin-bottom: 1rem;
 }
