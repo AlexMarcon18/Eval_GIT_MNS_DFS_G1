@@ -57,9 +57,8 @@ window.addEventListener("load", () => {
         const caze = tdList[i];
 
         caze.addEventListener("click", () => {
-
             if (caze.innerText === '') {
-                caze.innerText = players [round % players.length /* 2 */];
+                caze.innerHTML = `<span>${players[round % players.length]}</span>`;
                 checkWin();
                 round++;
                 updateCurrentPlayerScreen();

@@ -100,9 +100,12 @@ table {
 
 td {
   border: 2px solid var(--neon-purple) !important;
-  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  vertical-align: middle;
 }
 
 td:hover {
@@ -155,10 +158,10 @@ td:hover::after {
 
 /* Style pour les X et O */
 td:has(span) {
-  color: var(--neon-blue);
+  color: white;
   font-size: 2.5rem;
   font-weight: bold;
-  text-shadow: 0 0 10px var(--neon-blue);
+  text-shadow: 0 0 10px var(--neon-purple);
 }
 
 /* Texte */
