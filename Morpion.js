@@ -46,8 +46,9 @@ window.addEventListener("load", () => {
     }
 
     function updateCurrentPlayerScreen() {
+        currentPlayerScreen.innerText = players[round % 2];
     }
-
+    updateCurrentPlayerScreen();
 
 
     let i = 0;
